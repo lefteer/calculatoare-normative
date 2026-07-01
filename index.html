@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculatoare de proiectare · normative românești</title>
+<meta name="description" content="Index al miniaplicațiilor de calcul ingineresc după normativele românești de proiectare — fiecare cu breviar de calcul, teste de verificare și export PDF.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F3EAD1; --surface:#FCF6E6; --surface-2:#F2E8CF;
+    --ink:#3B3320; --ink-2:#6B5F43; --ink-3:#9A8B68;
+    --line:#E9DCBB; --line-2:#DAC89E;
+    --accent:#DD8E27; --accent-strong:#A8650F; --accent-soft:#F8E7C2;
+    --on-accent:#3D2C08;
+    --paper-sky:#F6E7C2; --paper-sun:#FDF0C6; --paper-base1:#F4EBD2; --paper-base2:#F2E7CC; --paper-base3:#EEE1C2;
+    --shadow:0 1px 2px rgba(120,86,30,.07), 0 12px 32px rgba(120,86,30,.12);
+    --radius:20px; --radius-sm:14px; --focus:0 0 0 3px var(--accent-soft),0 0 0 1.5px var(--accent);
+    --serif:"Fraunces","Iowan Old Style",Georgia,"Times New Roman",serif;
+    --sans:"Nunito",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  }
+  html[data-theme="dark"]{
+    --bg:#161F38; --surface:#202C49; --surface-2:#283557;
+    --ink:#EDE6D0; --ink-2:#B4BBD2; --ink-3:#7E879F;
+    --line:#2F3D60; --line-2:#3C4D77;
+    --accent:#E6B45C; --accent-strong:#F4CB7C; --accent-soft:#2A3760;
+    --on-accent:#1A2236;
+    --paper-sky:#1C2A4E; --paper-sun:#3A2F22; --paper-base1:#18223E; --paper-base2:#161F38; --paper-base3:#131B31;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 14px 36px rgba(0,0,0,.4);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;color:var(--ink);font-family:var(--sans);line-height:1.65;font-size:16px;
+    -webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums lining-nums;
+    background:var(--bg);
+    background-image:
+      radial-gradient(125% 70% at 50% -8%, var(--paper-sky) 0%, transparent 52%),
+      radial-gradient(70% 45% at 84% 2%, var(--paper-sun) 0%, transparent 46%),
+      linear-gradient(178deg, var(--paper-base1) 0%, var(--paper-base2) 45%, var(--paper-base3) 100%);
+    background-attachment:fixed}
+  body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+    mix-blend-mode:soft-light;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E")}
+  .shell{max-width:1020px;margin:0 auto;padding:0 22px}
+  :focus-visible{outline:none;box-shadow:var(--focus);border-radius:6px}
+  header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper-base2) 80%,transparent);
+    backdrop-filter:saturate(1.15) blur(10px);border-bottom:1px solid var(--line)}
+  .top .shell{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .mark{width:36px;height:36px;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--accent-soft),var(--surface-2));
+    display:flex;align-items:center;justify-content:center;border:1.5px solid var(--line-2)}
+  .brand .name{font-family:var(--serif);font-size:1.14rem}
+  .dnt{position:relative;width:66px;height:32px;border:none;border-radius:999px;cursor:pointer;padding:0;
+    overflow:hidden;flex:none;transition:background .35s ease;
+    background:linear-gradient(180deg,#FCD877 0%,#F0A92F 100%);
+    box-shadow:inset 0 1px 4px rgba(120,70,0,.28), 0 1px 2px rgba(0,0,0,.12)}
+  html[data-theme="dark"] .dnt{background:linear-gradient(180deg,#2E3D5C 0%,#1A2440 100%);
+    box-shadow:inset 0 1px 4px rgba(0,0,0,.45), 0 1px 2px rgba(0,0,0,.2)}
+  .dnt-day,.dnt-night{position:absolute;inset:0;transition:opacity .35s ease}
+  .dnt-night{opacity:0}
+  html[data-theme="dark"] .dnt-day{opacity:0}
+  html[data-theme="dark"] .dnt-night{opacity:1}
+  .dnt-sun{position:absolute;left:9px;top:8px;width:16px;height:16px;border-radius:50%;
+    background:radial-gradient(circle at 50% 50%,#fff 38%,#FFEAA0 72%,rgba(255,234,160,0) 100%);
+    filter:drop-shadow(0 0 4px rgba(255,240,180,.9))}
+  .dnt-crescent{position:absolute;right:12px;top:7px;width:13px;height:13px;border-radius:50%;background:#FBFAF2}
+  .dnt-crescent::before{content:"";position:absolute;right:-3px;top:-2.5px;width:12px;height:12px;border-radius:50%;background:#1F2A45}
+  .dnt-stars,.dnt-stars::before{position:absolute;border-radius:50%;background:#fff}
+  .dnt-stars{right:9px;top:6px;width:1.6px;height:1.6px;
+    box-shadow:-5px 9px 0 .1px #fff,4px 12px 0 -.2px #fff,-12px 4px 0 -.2px #fff,2px 2px 0 -.4px #fff}
+  .dnt-mtn{position:absolute;left:0;right:0;bottom:0;height:13px;
+    clip-path:polygon(0 100%,14% 55%,27% 80%,44% 36%,60% 72%,76% 46%,100% 78%,100% 100%)}
+  .dnt-day .dnt-mtn{background:linear-gradient(180deg,#D9892A,#BE721C);opacity:.9}
+  .dnt-night .dnt-mtn{background:linear-gradient(180deg,#41507180,#2A355080)}
+  .dnt-knob{position:absolute;top:4px;left:4px;width:24px;height:24px;border-radius:50%;z-index:4;
+    background:radial-gradient(circle at 34% 30%,#fff,#F2ECDB);
+    box-shadow:0 2px 4px rgba(0,0,0,.32),inset 0 -2px 3px rgba(0,0,0,.07);
+    transform:translateX(34px);transition:transform .38s cubic-bezier(.34,1.25,.5,1)}
+  html[data-theme="dark"] .dnt-knob{transform:translateX(0)}
+  .hero{padding:34px 0 10px}
+  .hero h1{font-family:var(--serif);font-weight:400;font-size:1.7rem;line-height:1.2;margin:0 0 10px}
+  .hero p{color:var(--ink-2);max-width:640px;margin:0}
+  .apps{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px;padding:24px 0 60px}
+  a.app{display:flex;flex-direction:column;gap:8px;background:var(--surface);border:1.5px solid var(--line);
+    border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow);text-decoration:none;color:var(--ink);
+    transition:.16s;background-image:linear-gradient(180deg,color-mix(in srgb,var(--paper-sun) 22%,var(--surface)) 0%,var(--surface) 90px)}
+  a.app:hover{transform:translateY(-2px);border-color:var(--line-2)}
+  .app .sym{font-family:var(--serif);font-style:italic;font-size:1.5rem;color:var(--accent-strong)}
+  .app .ttl{font-family:var(--serif);font-size:1.12rem}
+  .app .desc{font-size:.88rem;color:var(--ink-2);flex:1}
+  .app .chips{display:flex;gap:6px;flex-wrap:wrap}
+  .app .chip{font-size:.72rem;color:var(--accent-strong);background:var(--accent-soft);
+    border:1px solid var(--line-2);padding:1px 8px;border-radius:6px}
+  .app .go{font-size:.84rem;color:var(--accent-strong);font-weight:600}
+  .empty{padding:40px 0;color:var(--ink-3)}
+  footer{border-top:1px solid var(--line);padding:24px 0 46px;color:var(--ink-3);font-size:.84rem}
+  sub,sup{line-height:0}
+  @media (max-width:560px){.shell{padding:0 14px}.apps{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="shell">
+    <div class="brand">
+      <span class="mark" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <rect x="4" y="13" width="4.4" height="6" rx="1" fill="var(--accent)"/>
+          <rect x="9.8" y="9" width="4.4" height="10" rx="1" fill="var(--accent)" opacity=".75"/>
+          <rect x="15.6" y="5" width="4.4" height="14" rx="1" fill="var(--accent)" opacity=".5"/>
+        </svg>
+      </span>
+      <span class="name">Calculatoare de proiectare</span>
+    </div>
+    <button class="dnt" id="themeBtn" role="switch" aria-checked="false" aria-label="Schimbă tema: zi / noapte" title="Zi / noapte">
+      <span class="dnt-day" aria-hidden="true"><span class="dnt-sun"></span><span class="dnt-mtn"></span></span>
+      <span class="dnt-night" aria-hidden="true"><span class="dnt-stars"></span><span class="dnt-crescent"></span><span class="dnt-mtn"></span></span>
+      <span class="dnt-knob" aria-hidden="true"></span>
+    </button>
+  </div>
+</header>
+
+<div class="shell">
+  <section class="hero">
+    <h1>Miniaplicații de calcul după normativele românești</h1>
+    <p>Câte un calculator per verificare — fiecare cu breviar de calcul pas cu pas, citații la
+       clauzele normativului, teste de verificare calculate de mână și export PDF A4.
+       Rulează local, fără instalare.</p>
+  </section>
+  <main class="apps" id="apps"></main>
+</div>
+
+<footer>
+  <div class="shell">Instrumente de sprijin — rezultatele sunt orientative; verificarea ipotezelor
+    și responsabilitatea proiectării revin inginerului proiectant.</div>
+</footer>
+
+<script>
+"use strict";
+/* ═══ SLOT: lista aplicațiilor — skill-ul miniapp-normativ adaugă câte o intrare la fiecare publicare ═══ */
+const APPS = [
+  { slug: "calculator-coeficient-pat-ks",
+    titlu: "Coeficientul de pat",
+    simbol: "k<sub>s</sub>",
+    descriere: "Modulul de reacțiune al terenului pentru fundații pe mediu elastic — cinci metode, inclusiv teren stratificat.",
+    normative: ["NP 112/2014 · Anexele K și H"],
+    url: "https://lefteer.github.io/calculator-coeficient-pat-ks/",
+    data: "2026-06" },
+  { slug: "strapungere-ec2",
+    titlu: "Verificarea la străpungere",
+    simbol: "v<sub>Rd,c</sub>",
+    descriere: "Plăci dală, radiere (cu aportul presiunii terenului) și capete de pereți — perimetre de control, armare cu etrieri, bare înclinate sau gujoane.",
+    normative: ["SR EN 1992-1-1 §6.4", "NP 112/2014"],
+    url: "https://lefteer.github.io/strapungere-ec2/",
+    data: "2026-07" },
+];
+/* ═══ sfârșit SLOT ═══ */
+
+const el=document.getElementById("apps");
+if(!APPS.length){ el.innerHTML='<p class="empty">Încă nimic aici — prima aplicație e pe drum.</p>'; }
+else el.innerHTML=APPS.map(a=>`<a class="app" href="${a.url}">
+  <span class="sym">${a.simbol||""}</span>
+  <span class="ttl">${a.titlu}</span>
+  <span class="desc">${a.descriere||""}</span>
+  <span class="chips">${(a.normative||[]).map(n=>`<span class="chip">${n}</span>`).join("")}</span>
+  <span class="go">Deschide →</span></a>`).join("");
+
+function setTheme(t){document.documentElement.setAttribute("data-theme",t);
+  document.getElementById("themeBtn").setAttribute("aria-checked",t==="dark"?"true":"false");
+  try{localStorage.setItem("hub_theme",t);}catch(e){}}
+document.getElementById("themeBtn").addEventListener("click",()=>setTheme(document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark"));
+try{const t=localStorage.getItem("hub_theme");if(t)setTheme(t);}catch(e){}
+</script>
+</body>
+</html>
